@@ -46,6 +46,7 @@ func main() {
 
 func serve() {
 	//serve up image on localhost:8080/image
+	fmt.Println("Please visit localhost:8080/image")
 	http.HandleFunc("/image", respHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatalf("ListenAndServe: %v", err)
