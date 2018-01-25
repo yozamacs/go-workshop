@@ -17,7 +17,6 @@ The purpose of this workshop is to experiment with a simple go project and learn
   * `mkdir $GOPATH/pkg`
 
 ### Get the project set up
-* Create the directory for this project, `mkdir -p $GOPATH/src/github.com/yozamacs/go-workshop`
 * Run `go get -u github.com/yozamacs/go-workshop` to get this code
 * Navigate to the above path and open up in your favorite code editor and play around!
 
