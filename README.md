@@ -10,10 +10,11 @@ The purpose of this workshop is to experiment with a simple go project and learn
 * Download the appropiate go binary for your operating system
 [here](https://golang.org/dl/)
 * Set up your GOPATH like [this](https://github.com/golang/go/wiki/SettingGOPATH)
+* Create go directory, `mkdir $GOPATH`
 * Create the following directories underneath your GOPATH
-  * mkdir $GOPATH/src
-  * mkdir $GOPATH/bin
-  * mkdir $GOPATH/pkg
+  * `mkdir $GOPATH/src`
+  * `mkdir $GOPATH/bin`
+  * `mkdir $GOPATH/pkg`
 
 ### Get the project set up
 * Create the directory for this project, `mkdir -p $GOPATH/src/github.com/yozamacs/go-workshop`
