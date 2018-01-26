@@ -36,7 +36,7 @@ The purpose of this workshop is to experiment with a simple go project and learn
 #### Ideas for tinkering
 * [Try it!](https://github.com/yozamacs/go-workshop/blob/master/main.go#L89) Add more filters, see the options [here](https://github.com/disintegration/gift#filter-examples)
 * [Try it!](https://github.com/yozamacs/go-workshop/blob/master/main.go#L26) Add a command line option that lists possible filters for users
-* [Try it!](https://github.com/yozamacs/go-workshop/blob/master/main.go#L70)Try loading the image from a file instead of a link, hint 
+* [Try it!](https://github.com/yozamacs/go-workshop/blob/master/main.go#L70) Try loading the image from a file instead of a link, hint 
 
 ## Miscellaneous
 ### Fun Image Links
