@@ -25,8 +25,13 @@ The purpose of this workshop is to experiment with a simple go project and learn
 * This will create an executable in the project directory
 * Run the executable with the command `./go-workshop`
   * You can run the executable with various options including
-    * `-image_url=<any png,jpg/jpeg,gif image link>`
-    * `-filter_list=<one or more of the following: grayscale,invert,pixelate> `
+    * `-image_location=<any png,jpg/jpeg,gif image link>`
+    * `-filter_list=<one or more of the following: grayscale,invert,pixelate>`
+  * Example command line opttions
+    * `./go-workshop -image_location=https://i.imgur.com/FB5IGMg.png`
+    * `./go-workshop -filter_list=pixelate,invert`
+    * `./go-workshop -image_location=https://i.imgur.com/5JWde5K.jpg -filter_list=pixelate`
+* Open a browser and visit http://localhost:8080/image to see the result!
 
 #### Ideas for tinkering
 * Add more filters, see the options [here](https://github.com/disintegration/gift#filter-examples)

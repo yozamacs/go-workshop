@@ -6,7 +6,6 @@ import (
 	"image"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 
 	"image/gif"
@@ -18,18 +17,18 @@ import (
 
 var finalImage image.Image
 var imageFormat string
-var imageURL string
+var imageLocation string
 var filters string
 
 func init() {
-	flag.StringVar(&imageURL, "image_url", "https://i.imgur.com/Ed4LdEW.jpg", "an image url to transform")
+	flag.StringVar(&imageLocation, "image_location", "https://i.imgur.com/Ed4LdEW.jpg", "an image url to transform")
 	flag.StringVar(&filters, "filter_list", "grayscale", "what filter(s) you want to apply to your image")
+	// Add a new command line option, perhaps listing available image filters
 }
 
 func main() {
-
 	flag.Parse()
-	src, err := retrieveImage(imageURL)
+	src, err := retrieveImage(imageLocation)
 	if err != nil {
 		log.Fatalf("Unable to retrieve image: %v", err)
 	}
@@ -44,6 +43,7 @@ func main() {
 	serve()
 }
 
+// Rename serve() to save() and try saving the image to a file
 func serve() {
 	//serve up image on localhost:8080/image
 	fmt.Println("Please visit localhost:8080/image")
@@ -63,13 +63,13 @@ func respHandler(res http.ResponseWriter, req *http.Request) {
 	case "gif":
 		gif.Encode(res, finalImage, nil)
 	default:
-		fmt.Println("unrecognized image format")
-		os.Exit(1)
+		log.Fatal("unrecognized image format")
 	}
 }
 
-func retrieveImage(imageURL string) (image.Image, error) {
-	resp, err := http.Get(imageURL)
+// Try retrieving the image from a file
+func retrieveImage(imageLocation string) (image.Image, error) {
+	resp, err := http.Get(imageLocation)
 	if err != nil {
 		return nil, err
 	}
@@ -86,6 +86,7 @@ func getFilters() []gift.Filter {
 	filterMap["grayscale"] = gift.Grayscale()
 	filterMap["invert"] = gift.Invert()
 	filterMap["pixelate"] = gift.Pixelate(3)
+	// Add more filters here!
 
 	filterTitles := strings.Split(filters, ",")
 	for _, filter := range filterTitles {
@@ -93,8 +94,7 @@ func getFilters() []gift.Filter {
 		if imageFilterObject != nil {
 			filterList = append(filterList, imageFilterObject)
 		} else {
-			fmt.Println("Sorry that image filter is not in the dictionary, please try a valid image filter")
-			os.Exit(1)
+			log.Fatal("Sorry that image filter is not in the dictionary, please try a valid image filter")
 		}
 	}
 	return filterList
